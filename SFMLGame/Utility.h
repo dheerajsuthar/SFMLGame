@@ -1,5 +1,7 @@
 #pragma once
+#include <SFML/Window/Keyboard.hpp>
 #include <sstream>
+
 
 namespace sf {
 	class Sprite;
@@ -8,6 +10,7 @@ namespace sf {
 
 template <typename T>
 std::string toString(const T& value);
+std::string toString(sf::Keyboard::Key key);
 
 void centerOrigin(sf::Sprite& sprite);
 void centerOrigin(sf::Text& text);

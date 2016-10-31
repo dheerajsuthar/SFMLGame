@@ -5,6 +5,7 @@
 #include "MenuState.h"
 #include "GameState.h"
 #include "PauseState.h"
+#include "SettingsState.h"
 
 const sf::Time Application::TimePerFrame = sf::seconds(1.f / 60.f);
 Application::Application()
@@ -20,6 +21,9 @@ Application::Application()
 	mWindow.setKeyRepeatEnabled(false);
 	mFonts.load(Fonts::Main, "Media/Sansation.ttf");
 	mTextures.load(Textures::TitleScreen, "Media/Textures/TitleScreen.png");
+	mTextures.load(Textures::ButtonNormal, "Media/Textures/ButtonNormal.png");
+	mTextures.load(Textures::ButtonSelected, "Media/Textures/ButtonSelected.png");
+	mTextures.load(Textures::ButtonPressed, "Media/Textures/ButtonPressed.png");
 
 	mStatisticsText.setFont(mFonts.get(Fonts::Main));
 	mStatisticsText.setPosition(5.f, 5.f);
@@ -92,4 +96,5 @@ void Application::registerStates()
 	mStateStack.registerState<MenuState>(States::Menu);
 	mStateStack.registerState<GameState>(States::Game);
 	mStateStack.registerState<PauseState>(States::Pause);
+	mStateStack.registerState<SettingsState>(States::Settings);
 }

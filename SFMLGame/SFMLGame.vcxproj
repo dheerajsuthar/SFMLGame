@@ -158,12 +158,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application.h" />
+    <ClInclude Include="Button.h" />
     <ClInclude Include="Category.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="CommandQueue.h" />
+    <ClInclude Include="Component.h" />
+    <ClInclude Include="Container.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Aircraft.h" />
     <ClInclude Include="GameState.h" />
+    <ClInclude Include="Label.h" />
     <ClInclude Include="LoadingState.h" />
     <ClInclude Include="MenuState.h" />
     <ClInclude Include="ParallelTask.h" />
@@ -172,6 +176,7 @@
     <ClInclude Include="ResourceIdentifiers.h" />
     <ClInclude Include="SceneNode.h" />
     <ClInclude Include="ResourceHolder.h" />
+    <ClInclude Include="SettingsState.h" />
     <ClInclude Include="SpriteNode.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateIndentifiers.h" />
@@ -185,16 +190,21 @@
   <ItemGroup>
     <ClCompile Include="Aircraft.cpp" />
     <ClCompile Include="Application.cpp" />
+    <ClCompile Include="Button.cpp" />
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="CommandQueue.cpp" />
+    <ClCompile Include="Component.cpp" />
+    <ClCompile Include="Container.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="GameState.cpp" />
+    <ClCompile Include="Label.cpp" />
     <ClCompile Include="LoadingState.cpp" />
     <ClCompile Include="MenuState.cpp" />
     <ClCompile Include="ParallelTask.cpp" />
     <ClCompile Include="PauseState.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="SceneNode.cpp" />
+    <ClCompile Include="SettingsState.cpp" />
     <ClCompile Include="SFMLGame.cpp" />
     <ClCompile Include="SpriteNode.cpp" />
     <ClCompile Include="State.cpp" />

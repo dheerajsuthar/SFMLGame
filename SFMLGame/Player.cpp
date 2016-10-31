@@ -47,9 +47,12 @@ void Player::handleRealTimeInput(CommandQueue & commands)
 
 void Player::assignKey(Action action, sf::Keyboard::Key key)
 {
-	for (auto itr = mKeyBinding.begin(); itr != mKeyBinding.end(); itr++) {
+	for (auto itr = mKeyBinding.begin(); itr != mKeyBinding.end();) {
 		if (itr->second == action) {
-			mKeyBinding.erase(itr);
+//investigate this.. increment was earlier done in loop
+			mKeyBinding.erase(itr++);
+		} else {
+			++itr;
 		}
 	}
 
@@ -73,7 +76,7 @@ void Player::initializeActions()
 	mActionBinding[MoveLeft].action = derivedAction<Aircraft>(AircraftMover(-playerSpeed, 0.f));
 	mActionBinding[MoveRight].action = derivedAction<Aircraft>(AircraftMover(+playerSpeed, 0.f));
 	mActionBinding[MoveUp].action = derivedAction<Aircraft>(AircraftMover(0.f, -playerSpeed));
-	mActionBinding[MoveDown].action = derivedAction<Aircraft>(AircraftMover(0.f, playerSpeed));
+	mActionBinding[MoveDown].action = derivedAction<Aircraft>(AircraftMover(0.f, +playerSpeed));
 }
 
 bool Player::isRealTimeAction(Action action)

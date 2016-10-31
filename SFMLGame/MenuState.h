@@ -2,6 +2,7 @@
 #include "State.h"
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Text.hpp>
+#include "Container.h"
 
 class MenuState : public State {
 public:
@@ -9,14 +10,8 @@ public:
 	virtual void draw();
 	virtual bool update(sf::Time dt);
 	virtual bool handleEvent(const sf::Event& event);
-	void updateOptionText();
 
 private:
-	enum OptionNames {
-		Play,
-		Exit
-	};
 	sf::Sprite mBackgroundSprite;
-	std::vector<sf::Text> mOptions;
-	std::size_t mOptionsIndex;
+	GUI::Container mGUIContainer;
 };
