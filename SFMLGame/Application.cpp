@@ -6,10 +6,11 @@
 #include "GameState.h"
 #include "PauseState.h"
 #include "SettingsState.h"
+#include "GameOverState.h"
 
 const sf::Time Application::TimePerFrame = sf::seconds(1.f / 60.f);
 Application::Application()
-	:mWindow(sf::VideoMode(640, 480), "States", sf::Style::Close)
+	:mWindow(sf::VideoMode(1024, 768), "States", sf::Style::Close)
 	, mTextures()
 	, mFonts()
 	, mPlayer()
@@ -45,6 +46,7 @@ void Application::run()
 			timeSinceLastUpdate -= TimePerFrame;
 			processInput();
 			update(TimePerFrame);
+
 			if (mStateStack.isEmpty()) {
 				mWindow.close();
 			}
@@ -97,4 +99,5 @@ void Application::registerStates()
 	mStateStack.registerState<GameState>(States::Game);
 	mStateStack.registerState<PauseState>(States::Pause);
 	mStateStack.registerState<SettingsState>(States::Settings);
+	mStateStack.registerState<GameOverState>(States::GameOver);
 }

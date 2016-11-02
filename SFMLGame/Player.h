@@ -11,7 +11,16 @@ public:
 		MoveRight,
 		MoveUp,
 		MoveDown,
+		Fire,
+		LaunchMissile,
 		ActionCount
+	};
+
+	enum MissionStatus
+	{
+		MissionRunning,
+		MissionSuccess,
+		MissionFailure
 	};
 
 	Player();
@@ -19,10 +28,14 @@ public:
 	void handleRealTimeInput(CommandQueue& commands);
 	void assignKey(Action action, sf::Keyboard::Key key);
 	sf::Keyboard::Key getAssignedKey(Action action);
+	void setMissionStatus(MissionStatus status);
+	MissionStatus getMissionStatus() const;
 
 private:
 	void initializeActions();
 	static bool isRealTimeAction(Action action);
+
 	std::map<sf::Keyboard::Key, Action> mKeyBinding;
-	std::map<Action, Command> mActionBinding;	
+	std::map<Action, Command> mActionBinding;
+	MissionStatus mCurrentMissionStatus;
 };
